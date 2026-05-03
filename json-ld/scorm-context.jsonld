@@ -1,0 +1,79 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "scorm": "https://api-evangelist.github.io/scorm/vocab#",
+    "adl": "https://www.adlnet.gov/vocab#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "lrmi": "http://purl.org/dcx/lrmi-terms/",
+
+    "LearningPackage": {
+      "@id": "schema:LearningResource",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A SCORM content package (ZIP file with imsmanifest.xml)"
+    },
+    "SCO": {
+      "@id": "scorm:ShareableContentObject",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A Shareable Content Object - the atomic unit of SCORM learning content"
+    },
+    "LearnerRecord": {
+      "@id": "scorm:LearnerRecord",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A record of a learner's interactions with a SCORM SCO"
+    },
+    "Interaction": {
+      "@id": "scorm:Interaction",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "A learner interaction (quiz question response, exercise completion)"
+    },
+
+    "completionStatus": {
+      "@id": "adl:completionStatus",
+      "@type": "xsd:string"
+    },
+    "successStatus": {
+      "@id": "adl:successStatus",
+      "@type": "xsd:string"
+    },
+    "lessonStatus": {
+      "@id": "scorm:lessonStatus",
+      "@type": "xsd:string"
+    },
+    "score": {
+      "@id": "schema:achievementStatus",
+      "@type": "xsd:decimal"
+    },
+    "scaledScore": {
+      "@id": "adl:scaledScore",
+      "@type": "xsd:decimal"
+    },
+    "totalTime": {
+      "@id": "schema:timeRequired",
+      "@type": "xsd:string"
+    },
+    "suspendData": {
+      "@id": "scorm:suspendData",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "scorm:learnerLocation",
+      "@type": "xsd:string"
+    },
+    "progressMeasure": {
+      "@id": "adl:progressMeasure",
+      "@type": "xsd:decimal"
+    },
+    "learnerId": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "learnerName": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "educationalLevel": {
+      "@id": "lrmi:educationalLevel",
+      "@type": "xsd:string"
+    }
+  }
+}

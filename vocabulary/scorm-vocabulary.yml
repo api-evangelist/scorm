@@ -1,0 +1,150 @@
+aid: scorm-vocabulary
+name: SCORM Vocabulary
+description: >-
+  Normative vocabulary and taxonomy for the SCORM (Sharable Content Object
+  Reference Model) e-learning specification. Covers core concepts from
+  SCORM 1.2, SCORM 2004, and the modern xAPI successor standard.
+created: '2026-05-02'
+modified: '2026-05-02'
+terms:
+  - term: SCORM
+    label: Sharable Content Object Reference Model
+    definition: >-
+      A set of technical standards for web-based e-learning content that
+      defines how content communicates with Learning Management Systems (LMS).
+      SCORM ensures interoperability between content from different authoring
+      tools and different LMS platforms.
+    related: [xAPI, LMS, SCO]
+
+  - term: SCO
+    label: Shareable Content Object
+    definition: >-
+      The atomic unit of SCORM-compliant learning content. A SCO is a
+      collection of assets (HTML, media, JavaScript) that can communicate
+      with an LMS via the SCORM runtime API.
+    related: [SCORM, LMS]
+
+  - term: LMS
+    label: Learning Management System
+    definition: >-
+      A software platform used to deliver, track, and manage e-learning
+      content. An LMS must implement the SCORM API to host SCORM packages.
+    examples:
+      - Moodle
+      - Cornerstone
+      - SAP SuccessFactors Learning
+      - Docebo
+
+  - term: LMSInitialize
+    label: LMS Initialize
+    definition: >-
+      The SCORM 1.2 API function that initializes communication between
+      the SCO and the LMS. Must be called when the SCO loads.
+    scorm_version: "1.2"
+    related: [LMSFinish]
+
+  - term: Initialize
+    label: Initialize
+    definition: >-
+      The SCORM 2004 API function (on the API_1484_11 object) that
+      initializes the runtime communication.
+    scorm_version: "2004"
+    related: [Terminate]
+
+  - term: CMI
+    label: Computer Managed Instruction
+    definition: >-
+      The data model namespace used by SCORM for all runtime data elements.
+      CMI data elements track learner progress, scores, time, and status.
+
+  - term: LessonStatus
+    label: Lesson Status
+    definition: >-
+      SCORM 1.2 data element (cmi.core.lesson_status) that combines both
+      completion and success into a single value: passed, failed, completed,
+      incomplete, browsed, or not attempted.
+    scorm_version: "1.2"
+    related: [CompletionStatus, SuccessStatus]
+
+  - term: CompletionStatus
+    label: Completion Status
+    definition: >-
+      SCORM 2004 data element (cmi.completion_status) indicating whether
+      the learner has completed the content: completed, incomplete,
+      not attempted, or unknown.
+    scorm_version: "2004"
+
+  - term: SuccessStatus
+    label: Success Status
+    definition: >-
+      SCORM 2004 data element (cmi.success_status) indicating mastery:
+      passed, failed, or unknown.
+    scorm_version: "2004"
+
+  - term: SuspendData
+    label: Suspend Data
+    definition: >-
+      An arbitrary string (up to 4096 characters) that an SCO can use to
+      save its internal state when the learner exits, allowing resume from
+      the same position in the next session.
+
+  - term: PIF
+    label: Package Interchange Format
+    definition: >-
+      The ZIP file format used to package SCORM content for import into
+      an LMS. A PIF contains the imsmanifest.xml and all referenced files.
+
+  - term: imsmanifest
+    label: IMS Manifest
+    definition: >-
+      The XML file (imsmanifest.xml) at the root of every SCORM package
+      that describes the content structure, organizations, resources,
+      and metadata conforming to the IMS Content Packaging specification.
+
+  - term: xAPI
+    label: Experience API (Tin Can)
+    definition: >-
+      The modern successor to SCORM developed by ADL. xAPI uses a
+      Learning Record Store (LRS) and tracks learning statements in
+      subject-verb-object format, enabling tracking of experiences
+      beyond traditional LMS-hosted content.
+    aliases:
+      - Tin Can API
+    related: [LRS, SCORM]
+
+  - term: LRS
+    label: Learning Record Store
+    definition: >-
+      A database that stores xAPI statements about learning experiences.
+      Replaces the LMS as the data store in xAPI implementations.
+    related: [xAPI]
+
+  - term: ADL
+    label: Advanced Distributed Learning Initiative
+    definition: >-
+      The U.S. Department of Defense program that governs SCORM and xAPI
+      specifications. ADL manages conformance testing and specification
+      updates.
+
+  - term: Sequencing
+    label: SCORM Sequencing and Navigation
+    definition: >-
+      A SCORM 2004 sub-specification (IMS Simple Sequencing) that defines
+      rules for how learners can navigate between SCOs, based on completion
+      and mastery conditions.
+    scorm_version: "2004"
+
+domains:
+  - name: E-Learning Standards
+    description: Technical specifications for interoperable digital learning content
+    tags:
+      - E-Learning
+      - LMS
+      - Education Technology
+
+  - name: Learning Analytics
+    description: Tracking and measuring learner progress and performance
+    tags:
+      - Analytics
+      - Assessment
+      - Completion Tracking

@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api-evangelist.github.io/scorm/json-schema/scorm-cmi-data-schema.json",
+  "title": "SCORM CMI Data Model",
+  "description": "Schema representing the SCORM CMI (Computer Managed Instruction) data model used to track learner progress in a Learning Management System",
+  "type": "object",
+  "properties": {
+    "cmi.core.student_id": {
+      "type": "string",
+      "description": "Unique identifier for the learner (SCORM 1.2)"
+    },
+    "cmi.core.student_name": {
+      "type": "string",
+      "description": "Learner's name (SCORM 1.2)"
+    },
+    "cmi.core.lesson_location": {
+      "type": "string",
+      "description": "Bookmark of the learner's current location in the SCO"
+    },
+    "cmi.core.lesson_status": {
+      "type": "string",
+      "enum": ["passed", "failed", "completed", "incomplete", "browsed", "not attempted"],
+      "description": "SCORM 1.2 completion/success status combined field"
+    },
+    "cmi.core.score.raw": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Raw score earned by the learner"
+    },
+    "cmi.core.score.min": {
+      "type": "number",
+      "description": "Minimum possible score"
+    },
+    "cmi.core.score.max": {
+      "type": "number",
+      "description": "Maximum possible score"
+    },
+    "cmi.core.total_time": {
+      "type": "string",
+      "pattern": "^\\d+:\\d{2}:\\d{2}(\\.\\d+)?$",
+      "description": "Total time spent in HH:MM:SS.SS format"
+    },
+    "cmi.core.session_time": {
+      "type": "string",
+      "description": "Time spent in the current session"
+    },
+    "cmi.core.exit": {
+      "type": "string",
+      "enum": ["time-out", "suspend", "logout", ""],
+      "description": "How the learner exited the SCO"
+    },
+    "cmi.completion_status": {
+      "type": "string",
+      "enum": ["completed", "incomplete", "not attempted", "unknown"],
+      "description": "SCORM 2004 completion status (separate from success status)"
+    },
+    "cmi.success_status": {
+      "type": "string",
+      "enum": ["passed", "failed", "unknown"],
+      "description": "SCORM 2004 success/mastery status"
+    },
+    "cmi.score.scaled": {
+      "type": "number",
+      "minimum": -1,
+      "maximum": 1,
+      "description": "SCORM 2004 scaled score (-1 to 1)"
+    },
+    "cmi.score.raw": {
+      "type": "number",
+      "description": "SCORM 2004 raw score"
+    },
+    "cmi.score.min": {
+      "type": "number",
+      "description": "SCORM 2004 minimum score"
+    },
+    "cmi.score.max": {
+      "type": "number",
+      "description": "SCORM 2004 maximum score"
+    },
+    "cmi.location": {
+      "type": "string",
+      "description": "SCORM 2004 learner progress location bookmark"
+    },
+    "cmi.progress_measure": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Measure of learner's progress (0 to 1)"
+    },
+    "cmi.suspend_data": {
+      "type": "string",
+      "description": "Arbitrary data string for the SCO to save state"
+    },
+    "cmi.learner_id": {
+      "type": "string",
+      "description": "SCORM 2004 learner identifier"
+    },
+    "cmi.learner_name": {
+      "type": "string",
+      "description": "SCORM 2004 learner name"
+    },
+    "cmi.mode": {
+      "type": "string",
+      "enum": ["browse", "normal", "review"],
+      "description": "Mode in which the SCO is being launched"
+    },
+    "cmi.interactions": {
+      "type": "array",
+      "description": "Collection of learner interaction records",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the interaction"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["true-false", "choice", "fill-in", "long-fill-in", "matching", "performance", "sequencing", "likert", "numeric", "other"],
+            "description": "Type of interaction"
+          },
+          "learner_response": {
+            "type": "string",
+            "description": "Learner's response to the interaction"
+          },
+          "result": {
+            "type": "string",
+            "enum": ["correct", "incorrect", "unanticipated", "neutral"],
+            "description": "Result of the interaction"
+          },
+          "weighting": {
+            "type": "number",
+            "description": "Weight given to this interaction"
+          },
+          "latency": {
+            "type": "string",
+            "description": "Time taken to complete the interaction"
+          }
+        }
+      }
+    }
+  }
+}

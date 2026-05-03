@@ -1,0 +1,82 @@
+{
+  "description": "Example showing SCORM 1.2 JavaScript API initialization and data exchange sequence",
+  "version": "SCORM 1.2",
+  "api_object": "API",
+  "sequence": [
+    {
+      "step": 1,
+      "call": "LMSInitialize(\"\")",
+      "description": "Initialize the SCORM session when the SCO loads",
+      "expected_return": "true",
+      "javascript": "var result = API.LMSInitialize(\"\"); if(result != 'true') { alert('Init failed'); }"
+    },
+    {
+      "step": 2,
+      "call": "LMSGetValue(\"cmi.core.student_id\")",
+      "description": "Get the learner's unique identifier from the LMS",
+      "expected_return": "learner_12345",
+      "javascript": "var studentId = API.LMSGetValue('cmi.core.student_id');"
+    },
+    {
+      "step": 3,
+      "call": "LMSGetValue(\"cmi.core.lesson_status\")",
+      "description": "Get current lesson status to resume from previous session",
+      "expected_return": "incomplete",
+      "javascript": "var status = API.LMSGetValue('cmi.core.lesson_status');"
+    },
+    {
+      "step": 4,
+      "call": "LMSGetValue(\"cmi.suspend_data\")",
+      "description": "Retrieve saved state from the previous session",
+      "expected_return": "{\"page\":5,\"quiz_answers\":[1,2,3]}",
+      "javascript": "var savedData = API.LMSGetValue('cmi.suspend_data'); var state = JSON.parse(savedData || '{}');"
+    },
+    {
+      "step": 5,
+      "call": "LMSSetValue(\"cmi.core.lesson_status\", \"incomplete\")",
+      "description": "Set lesson status as learner progresses",
+      "expected_return": "true",
+      "javascript": "API.LMSSetValue('cmi.core.lesson_status', 'incomplete');"
+    },
+    {
+      "step": 6,
+      "call": "LMSSetValue(\"cmi.core.score.raw\", \"85\")",
+      "description": "Set the learner's quiz score",
+      "expected_return": "true",
+      "javascript": "API.LMSSetValue('cmi.core.score.raw', '85'); API.LMSSetValue('cmi.core.score.min', '0'); API.LMSSetValue('cmi.core.score.max', '100');"
+    },
+    {
+      "step": 7,
+      "call": "LMSSetValue(\"cmi.core.lesson_status\", \"passed\")",
+      "description": "Mark lesson as passed after successful quiz completion",
+      "expected_return": "true",
+      "javascript": "API.LMSSetValue('cmi.core.lesson_status', 'passed');"
+    },
+    {
+      "step": 8,
+      "call": "LMSCommit(\"\")",
+      "description": "Persist data to the LMS",
+      "expected_return": "true",
+      "javascript": "API.LMSCommit('');"
+    },
+    {
+      "step": 9,
+      "call": "LMSSetValue(\"cmi.core.exit\", \"normal\")",
+      "description": "Set exit type before finishing",
+      "expected_return": "true",
+      "javascript": "API.LMSSetValue('cmi.core.exit', '');"
+    },
+    {
+      "step": 10,
+      "call": "LMSFinish(\"\")",
+      "description": "End the SCORM session when the learner exits",
+      "expected_return": "true",
+      "javascript": "API.LMSFinish('');"
+    }
+  ],
+  "error_handling": {
+    "get_error_code": "API.LMSGetLastError()",
+    "get_error_string": "API.LMSGetErrorString(errorCode)",
+    "get_diagnostic": "API.LMSGetDiagnostic(errorCode)"
+  }
+}

@@ -49,6 +49,10 @@ apis:
         url: https://raw.githubusercontent.com/api-evangelist/scorm/refs/heads/main/json-structure/scorm-package-structure.json
       - type: JSONLDContext
         url: https://raw.githubusercontent.com/api-evangelist/scorm/refs/heads/main/json-ld/scorm-context.jsonld
+      - type: Vocabulary
+        url: https://raw.githubusercontent.com/api-evangelist/scorm/refs/heads/main/vocabulary/scorm-vocabulary.yml
+      - type: Example
+        url: https://raw.githubusercontent.com/api-evangelist/scorm/refs/heads/main/examples/scorm-api-initialize-example.json
   - aid: scorm:scorm-2004
     name: SCORM 2004 Runtime API
     description: >-

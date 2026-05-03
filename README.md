@@ -22,11 +22,37 @@ SCORM (Sharable Content Object Reference Model) is a set of technical standards 
 
 ## Specifications
 
-| Specification | Description |
-|---------------|-------------|
-| [SCORM 1.2](https://scorm.com/scorm-explained/technical-scorm/scorm-12-overview-for-developers/) | JavaScript API (named "API"), 6 lesson status values, CMI data model |
-| [SCORM 2004](https://scorm.com/scorm-explained/technical-scorm/scorm-2004-overview-for-developers/) | JavaScript API (named "API_1484_11"), separate completion/success status, IMS Sequencing |
-| [xAPI / Tin Can](https://xapi.com/) | Modern successor using LRS, statement-based tracking |
+| Specification | API Object | Description |
+|---------------|-----------|-------------|
+| [SCORM 1.2](https://scorm.com/scorm-explained/technical-scorm/scorm-12-overview-for-developers/) | `API` | JavaScript API with 6 lesson status values (passed, failed, completed, incomplete, browsed, not attempted) and CMI data model |
+| [SCORM 2004](https://scorm.com/scorm-explained/technical-scorm/scorm-2004-overview-for-developers/) | `API_1484_11` | Extended API with separate completion and success status, scaled scores, and IMS Simple Sequencing |
+| [xAPI / Tin Can](https://xapi.com/) | LRS | Modern successor using a Learning Record Store (LRS) and statement-based tracking (subject-verb-object) |
+
+## SCORM API Functions
+
+### SCORM 1.2 Functions
+| Function | Description |
+|----------|-------------|
+| `LMSInitialize("")` | Initialize the SCORM session |
+| `LMSGetValue(element)` | Read a CMI data model value |
+| `LMSSetValue(element, value)` | Write a CMI data model value |
+| `LMSCommit("")` | Persist data to the LMS |
+| `LMSFinish("")` | End the SCORM session |
+| `LMSGetLastError()` | Get the last error code |
+| `LMSGetErrorString(code)` | Get a human-readable error message |
+| `LMSGetDiagnostic(code)` | Get diagnostic detail for an error |
+
+### SCORM 2004 Functions (equivalent)
+| Function | Description |
+|----------|-------------|
+| `Initialize("")` | Initialize the session |
+| `GetValue(element)` | Read a CMI data model value |
+| `SetValue(element, value)` | Write a CMI data model value |
+| `Commit("")` | Persist data |
+| `Terminate("")` | End the session |
+| `GetLastError()` | Get last error code |
+| `GetErrorString(code)` | Get error message |
+| `GetDiagnostic(code)` | Get error diagnostic |
 
 ## Artifacts
 
@@ -34,13 +60,13 @@ SCORM (Sharable Content Object Reference Model) is a set of technical standards 
 
 | File | Description |
 |------|-------------|
-| [json-schema/scorm-cmi-data-schema.json](json-schema/scorm-cmi-data-schema.json) | SCORM CMI data model schema |
+| [json-schema/scorm-cmi-data-schema.json](json-schema/scorm-cmi-data-schema.json) | SCORM CMI data model schema covering SCORM 1.2 and SCORM 2004 fields |
 
 ### JSON Structure
 
 | File | Description |
 |------|-------------|
-| [json-structure/scorm-package-structure.json](json-structure/scorm-package-structure.json) | SCORM Package Interchange Format (PIF) structure |
+| [json-structure/scorm-package-structure.json](json-structure/scorm-package-structure.json) | SCORM Package Interchange Format (PIF) structure and manifest |
 
 ### JSON-LD
 
@@ -66,6 +92,7 @@ SCORM (Sharable Content Object Reference Model) is a set of technical standards 
 - **SCORM.com Technical Overview:** https://scorm.com/scorm-explained/technical-scorm/
 - **Rustici Software (SCORM Authority):** https://rusticisoftware.com/scorm/
 - **xAPI Specification (GitHub):** https://github.com/adlnet/xAPI-Spec
+- **ADL GitHub:** https://github.com/adlnet
 
 ## Maintainers
 

@@ -95,3 +95,8 @@ apis:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+common:
+  - type: DomainSecurity
+    url: security/scorm-domain-security.yml
+  - url: https://scorm.com/blog/
+    type: Blog

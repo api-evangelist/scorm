@@ -34,7 +34,7 @@ created: '2026-05-02'
 modified: '2026-05-02'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/scorm/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: scorm:scorm-12
     name: SCORM 1.2 Runtime API

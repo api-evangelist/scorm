@@ -114,3 +114,4 @@ common:
   url: security/scorm-domain-security.yml
 - url: https://scorm.com/blog/
   type: Blog
+kind: topic

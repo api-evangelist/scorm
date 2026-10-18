@@ -27,5 +27,5 @@
     - connectors/applications/scorm
     vendor_link: https://scorm.com/
     builder: Fivetran
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null

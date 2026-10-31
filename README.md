@@ -1,4 +1,4 @@
-# SCORM
+# scorm
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,101 +64,22 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-SCORM (Sharable Content Object Reference Model) is a set of technical standards for e-learning software products. Originally developed by the Advanced Distributed Learning (ADL) Initiative under the U.S. Department of Defense, SCORM defines how online learning content and Learning Management Systems (LMS) communicate, enabling interoperability between authoring tools, content packages, and LMS platforms. Key versions include SCORM 1.2 and SCORM 2004, with xAPI (Tin Can) as the modern successor.
+## scorm on APIs.io
 
-**Specification Site:** https://scorm.com/
-**ADL Initiative:** https://adlnet.gov/projects/scorm/
-**APIs.yml:** https://raw.githubusercontent.com/api-evangelist/scorm/refs/heads/main/apis.yml
+Everything profiled for scorm is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/scorm/](https://apis.io/providers/scorm/)** — or go straight to one of the APIs or properties below.
 
-## Scope
+## API Evangelist rating
 
-- **Type:** Standard
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Not yet rated. See [apis.io/providers/scorm/](https://apis.io/providers/scorm/).
 
-## Tags
+## How this profile is made
 
-- E-Learning
-- LMS
-- Standards
-- Education
-- Interoperability
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-## Specifications
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for scorm: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-| Specification | API Object | Description |
-|---------------|-----------|-------------|
-| [SCORM 1.2](https://scorm.com/scorm-explained/technical-scorm/scorm-12-overview-for-developers/) | `API` | JavaScript API with 6 lesson status values (passed, failed, completed, incomplete, browsed, not attempted) and CMI data model |
-| [SCORM 2004](https://scorm.com/scorm-explained/technical-scorm/scorm-2004-overview-for-developers/) | `API_1484_11` | Extended API with separate completion and success status, scaled scores, and IMS Simple Sequencing |
-| [xAPI / Tin Can](https://xapi.com/) | LRS | Modern successor using a Learning Record Store (LRS) and statement-based tracking (subject-verb-object) |
+## Open an issue
 
-## SCORM API Functions
-
-### SCORM 1.2 Functions
-| Function | Description |
-|----------|-------------|
-| `LMSInitialize("")` | Initialize the SCORM session |
-| `LMSGetValue(element)` | Read a CMI data model value |
-| `LMSSetValue(element, value)` | Write a CMI data model value |
-| `LMSCommit("")` | Persist data to the LMS |
-| `LMSFinish("")` | End the SCORM session |
-| `LMSGetLastError()` | Get the last error code |
-| `LMSGetErrorString(code)` | Get a human-readable error message |
-| `LMSGetDiagnostic(code)` | Get diagnostic detail for an error |
-
-### SCORM 2004 Functions (equivalent)
-| Function | Description |
-|----------|-------------|
-| `Initialize("")` | Initialize the session |
-| `GetValue(element)` | Read a CMI data model value |
-| `SetValue(element, value)` | Write a CMI data model value |
-| `Commit("")` | Persist data |
-| `Terminate("")` | End the session |
-| `GetLastError()` | Get last error code |
-| `GetErrorString(code)` | Get error message |
-| `GetDiagnostic(code)` | Get error diagnostic |
-
-## Artifacts
-
-### JSON Schema
-
-| File | Description |
-|------|-------------|
-| [json-schema/scorm-cmi-data-schema.json](json-schema/scorm-cmi-data-schema.json) | SCORM CMI data model schema covering SCORM 1.2 and SCORM 2004 fields |
-
-### JSON Structure
-
-| File | Description |
-|------|-------------|
-| [json-structure/scorm-package-structure.json](json-structure/scorm-package-structure.json) | SCORM Package Interchange Format (PIF) structure and manifest |
-
-### JSON-LD
-
-| File | Description |
-|------|-------------|
-| [json-ld/scorm-context.jsonld](json-ld/scorm-context.jsonld) | JSON-LD context for SCORM vocabulary |
-
-### Examples
-
-| File | Description |
-|------|-------------|
-| [examples/scorm-api-initialize-example.json](examples/scorm-api-initialize-example.json) | SCORM 1.2 API initialization and data exchange sequence |
-
-### Vocabulary
-
-| File | Description |
-|------|-------------|
-| [vocabulary/scorm-vocabulary.yml](vocabulary/scorm-vocabulary.yml) | SCORM normative vocabulary and e-learning taxonomy |
-
-## Links
-
-- **ADL SCORM Resources:** https://adlnet.gov/projects/scorm/
-- **SCORM.com Technical Overview:** https://scorm.com/scorm-explained/technical-scorm/
-- **Rustici Software (SCORM Authority):** https://rusticisoftware.com/scorm/
-- **xAPI Specification (GitHub):** https://github.com/adlnet/xAPI-Spec
-- **ADL GitHub:** https://github.com/adlnet
-
-## Maintainers
-
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/scorm/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
